@@ -6,10 +6,16 @@ const ejsMate = require('ejs-mate')
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 const flash = require('connect-flash')
-
+const passport = require('passport')
+const passportLocal = require('passport-local')
+const passportGoogle = require('passport-google-oauth')
+const User = require('./models/user')
 const ExpressError = require('./utils/expressError')
-const campgrounds = require('./routes/campgrounds')
-const reviews = require('./routes/reviews')
+
+const userRoutes = require('./routes/users')
+const campgroundRoutes = require('./routes/campgrounds')
+const reviewRoutes = require('./routes/reviews')
+
 
 
 
@@ -47,16 +53,35 @@ const sessionConfig = {
 app.use(session(sessionConfig))
 app.use(flash())
 
+app.use(passport.initialize())
+app.use(passport.session())
+// passport.use(new passportLocal(User.authenticate()), passportGoogle(User.authenticate()))
+passport.use(new passportLocal(User.authenticate()))
+
+
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
+
 app.use((req, res, next) => {
+    res.locals.currentUser = req.user
     res.locals.success = req.flash('success')
     res.locals.error = req.flash('error')
     next()
 })
 
 
+app.get('/fakeuser', async (req, res) => {
+    const user = new User({ email: 'alex@gmail.com', username: 'acko__' })
+    const newUser = await User.register(user, 'chicken')
+    res.send(newUser)
+})
 
-app.use('/campgrounds', campgrounds)
-app.use('/campgrounds/:id/reviews', reviews)
+
+app.use('/', userRoutes)
+app.use('/campgrounds', campgroundRoutes)
+app.use('/campgrounds/:id/reviews', reviewRoutes)
+
+
 
 app.get('/', (req, res) => {
     res.render('home')

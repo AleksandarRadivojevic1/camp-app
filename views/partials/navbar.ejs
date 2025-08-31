@@ -1,6 +1,6 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">CampCheck</a>
+    <a class="navbar-brand" href="/">CampCheck</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
       aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -16,7 +16,7 @@
           <a class="nav-link" href="/login">Login</a>
           <a class="nav-link" href="/register">Register</a>
           <% } else{%>
-             <span class="input-group-text bg-dark text-white" id="basic-addon1"><%= currentUser.username %></span>
+             <span class="input-group-text bg-dark text-white"><%= currentUser.username %></span>
             <a class="nav-link" href="/logout">Logout</a>
             <% } %>
       </div>

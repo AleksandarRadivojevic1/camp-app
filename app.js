@@ -70,11 +70,11 @@ app.use((req, res, next) => {
 })
 
 
-app.get('/fakeuser', async (req, res) => {
-    const user = new User({ email: 'alex@gmail.com', username: 'acko__' })
-    const newUser = await User.register(user, 'chicken')
-    res.send(newUser)
-})
+// app.get('/fakeuser', async (req, res) => {
+//     const user = new User({ email: 'alex@gmail.com', username: 'acko__' })
+//     const newUser = await User.register(user, 'chicken')
+//     res.send(newUser)
+// })
 
 
 app.use('/', userRoutes)

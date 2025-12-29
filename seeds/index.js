@@ -24,7 +24,11 @@ const seedDB = async () => {
             title: `${randSample(descriptors)} ${randSample(places)}`,
             geometry:{
                     type : "Point",
-                    coordinates : [-113.1331, 47.0202] 
+                    coordinates : 
+                    [
+                    cities[random1000].longtitude,
+                    cities[random1000].latitude,
+                    ]
             },
             images: [
                 {

@@ -21,8 +21,6 @@
         map.addSource('campgrounds', {
             type: 'geojson',
             generateId: true,
-            // Point to GeoJSON data. This example visualizes all M1.0+ earthquakes
-            // from 12/22/15 to 1/21/16 as logged by USGS' Earthquake hazards program.
             data: campgrounds,
             cluster: true,
             clusterMaxZoom: 14, // Max zoom to cluster points on
@@ -43,20 +41,20 @@
                 'circle-color': [
                     'step',
                     ['get', 'point_count'],
-                    '#51bbd6',
-                    100,
-                    '#f1f075',
-                    750,
-                    '#f28cb1'
+                    '#00bcd4',
+                    10,
+                    '#2196f3',
+                    30,
+                    '#3f51b5'
                 ],
                 'circle-radius': [
                     'step',
                     ['get', 'point_count'],
+                    15,
+                    10,
                     20,
-                    100,
                     30,
-                    750,
-                    40
+                    25
                 ],
                 'circle-emissive-strength': 1
             }
@@ -123,14 +121,13 @@
             target: { layerId: 'unclustered-point' },
             handler: (e) => {
                 const coordinates = e.feature.geometry.coordinates.slice();
-                const mag = e.feature.properties.mag;
-                const tsunami =
-                    e.feature.properties.tsunami === 1 ? 'yes' : 'no';
+                const popupText = e.feature.properties.popUpMarkup;
+                
 
                 new mapboxgl.Popup()
                     .setLngLat(coordinates)
                     .setHTML(
-                        `magnitude: ${mag}<br>Was there a tsunami?: ${tsunami}`
+                    popupText
                     )
                     .addTo(map);
             }

@@ -18,6 +18,7 @@ const passportLocal = require('passport-local')
 const passportGoogle = require('passport-google-oauth')
 const User = require('./models/user')
 const ExpressError = require('./utils/expressError')
+const mongoSanitize = require('express-mongo-sanitize');
 
 const userRoutes = require('./routes/users')
 const campgroundRoutes = require('./routes/campgrounds')
@@ -46,6 +47,9 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 // app.use(morgan('tiny'))
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(mongoSanitize({
+    replaceWith: '_'
+}))
 
 const sessionConfig = {
     secret: 'thisisasecret',
@@ -77,11 +81,6 @@ app.use((req, res, next) => {
 })
 
 
-// app.get('/fakeuser', async (req, res) => {
-//     const user = new User({ email: 'alex@gmail.com', username: 'acko__' })
-//     const newUser = await User.register(user, 'chicken')
-//     res.send(newUser)
-// })
 
 
 app.use('/', userRoutes)

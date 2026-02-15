@@ -7,7 +7,7 @@
        <a href="/campgrounds/new">Make a new campground</a>
 
         <% for (let campground of campgrounds) { %>
-           <div class="card mb-4">
+           <div class="card mb-4 card-home">
             <div class="row">
                 <div class="col-md-4">
                     <% if(campground.images.length ) {%>
@@ -23,7 +23,7 @@
                         <p class="card-text">
                             <small class="text-muted"> <%= campground.location %></small>
                         </p>
-                        <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">View <%= campground.title %></a>
+                        <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary button-style">View <%= campground.title %></a>
                     </div>
                 </div>
             </div>

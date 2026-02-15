@@ -1,7 +1,8 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+<!-- <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark"> -->
+<nav class="navbar navbar-modern sticky-top navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">CampCheck</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+    <button class="navbar-toggler btn-toggle-color" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
       aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,14 +13,15 @@
         <a class="nav-link" href="/campgrounds/new">New Campground</a>
       </div>
       <div class="navbar-nav ms-auto">
-        <% if(!currentUser){ %>
+        <% if(!currentUser) { %>
           <a class="nav-link" href="/login">Login</a>
           <a class="nav-link" href="/register">Register</a>
-          <% } else{%>
-             <span class="input-group-text bg-dark text-white"><%= currentUser.username %></span>
+          <% } else {%>
+             <span class="input-group-text logged-user-box"><%= currentUser.username.length > 10 ? currentUser.username.substring(0, 10) + '...' : currentUser.username %></span>
             <a class="nav-link" href="/logout">Logout</a>
             <% } %>
       </div>
     </div>
   </div>
 </nav>
+<script src="/javascripts/navbarScroll.js"></script>

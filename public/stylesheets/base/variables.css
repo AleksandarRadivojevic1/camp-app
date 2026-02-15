@@ -1,0 +1,49 @@
+:root {
+
+  /*  Browns */
+  --color-brown-900: #582F0E;
+  --color-brown-700: #7F4F24;
+  --color-brown-600: #936639;
+  --color-brown-400: #A68A64;
+
+  /*  Greens */
+  --color-green-800: #333D29;
+  --color-green-700: #414833;
+  --color-green-600: #656D4A;
+  --color-green-400: #0f100c;
+
+  /* Neutrals */
+  --color-neutral-500: #121211f0;
+  --color-neutral-350: #c0ad6f;
+  --color-neutral-300: #B6AD90;
+  --color-neutral-250: #e6ccb2;
+  --color-neutral-200: #C2C5AA;
+  --color-neutral-100: #e7e7e7;
+  --color-neutral-50: #dfdddde9;
+
+  --color-primary: var(--color-green-700);
+  --color-accent: var(--color-brown-700);
+
+  --color-bg-main: var(--color-neutral-200);
+  --color-bg-card: #ffffff;
+
+
+  /* Glass */
+  --color-glass-bg: rgba(35, 41, 33, 0.236);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+  --shadow-lg: 0 10px 40px rgba(0,0,0,0.15);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition: 0.3s var(--ease-out);
+}

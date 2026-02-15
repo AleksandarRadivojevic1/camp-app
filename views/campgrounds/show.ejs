@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/stylesheets/stars.css">
 
     <div class="row">
-        <div class="col-6 mt-3">
+        <div class="col-6 mt-3 reveal reveal-left">
             <div id="campgroundCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <% campground.images.forEach((img, i ) =>  {%>
@@ -27,18 +27,18 @@
                     <h5 class="card-title">
                         <%= campground.title %>
                     </h5>
-                    <p class="card-text">
+                    <p class="card-text card-style">
                         <%= campground.description %>
                     </p>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item text-muted">
+                <ul class="list-group card-style list-group-flush">
+                    <li class="list-group-item card-style text-muted">
                         <%= campground.location %>
                     </li>
-                    <li class="list-group-item">Author:
+                    <li class="list-group-item card-style">Author:
                         <span class="fw-bold">@<%= campground.author.username %></span>
                     </li>
-                    <li class="list-group-item">$<%= campground.price %> /night</li>
+                    <li class="list-group-item card-style">$<%= campground.price %> /night</li>
                 </ul>
                 <% if(currentUser && campground.author.equals(currentUser._id)){ %>
                 <div class="card-body">
@@ -52,13 +52,13 @@
                     2 days ago
                 </div>
             </div>
-            <a class="btn mb-5" href="/campgrounds/">
+            <a class="btn btn-custom mt-1 mb-5" href="/campgrounds/">
                 <img src="https://cdn-icons-png.flaticon.com/512/545/545680.png" alt="Back"
                     style="width: 16px; height: 16px; margin-right: 4px;">
                 All Campgrounds
             </a>
             </div>
-            <div class="col-6 mt-3">
+            <div class="col-6 mt-3 reveal reveal-right">
                 <div class="mb-3" id='map'></div>
                 <% if(currentUser){ %>
             <h2>Leave a Review</h2>
@@ -89,7 +89,7 @@
             </form>
             <% } %>
             <% for(let review of campground.reviews){ %>
-                <div class="card mb-3"> 
+                <div class="card mb-3 reveal reveal-up"> 
                     <div class="card-body">
                              <h6 class="card-subtitle mb-2 text-muted">By: @<%= review.author.username %></h6>
                             <p class="starability-result" data-rating="<%=review.rating %>">

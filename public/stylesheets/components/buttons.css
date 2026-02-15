@@ -1,0 +1,78 @@
+.btn {
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background: var(--color-green-600);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: var(--color-green-700);
+  color: white;
+  border: none;
+}
+
+/* had to override bootsrap's default focus styles for buttons to match the new design system */
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-green-600)!important;
+}
+
+.btn-info{
+  background: var(--color-neutral-300);
+  color: white;
+  border: none;
+}
+
+.btn-info:hover {
+  background: var(--color-neutral-350);
+  color: white;
+  border: none;
+}
+
+.btn-info:active,
+.btn-info:focus,
+.btn-info:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-neutral-350)!important;
+}
+
+.btn-success {
+  background: linear-gradient(135deg, var(--color-primary), #3d7a4d);
+  border: none;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-danger {
+  border-radius: var(--radius-sm);
+}
+
+.btn-custom{
+  border-color: var(--color-neutral-500);
+  border-width: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.btn-custom:hover {
+  background: var(--color-neutral-50);
+}
+
+.btn-custom:active,
+.btn-custom:focus,
+.btn-custom:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-neutral-500)!important;
+}
+
+

@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/stylesheets/stars.css">
 
     <div class="row">
-        <div class="col-6 mt-3 reveal reveal-left">
+        <div class="col-12 col-md-6 mt-3 mt-md-3 reveal reveal-left">
             <div id="campgroundCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <% campground.images.forEach((img, i ) =>  {%>
@@ -52,20 +52,20 @@
                     2 days ago
                 </div>
             </div>
-            <a class="btn btn-custom mt-1 mb-5" href="/campgrounds/">
+            <a class="btn btn-custom mt-1 mb-3" href="/campgrounds/">
                 <img src="https://cdn-icons-png.flaticon.com/512/545/545680.png" alt="Back"
                     style="width: 16px; height: 16px; margin-right: 4px;">
                 All Campgrounds
             </a>
-            </div>
-            <div class="col-6 mt-3 reveal reveal-right">
-                <div class="mb-3" id='map'></div>
-                <% if(currentUser){ %>
+        </div>
+
+        <div class="col-12 col-md-6 mt-3 reveal reveal-right">
+            <div id="map" class="mb-3 d-none d-md-flex"></div>
+            <% if(currentUser){ %>
             <h2>Leave a Review</h2>
             <form class="mb-3 validated-form" action="/campgrounds/<%=campground._id%>/reviews" method="post"
                 novalidate>
                 <div class="mb-3">
-
                     <fieldset class="starability-coinFlip mt-4">
                         <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
                         <input type="radio" id="first-rate1" name="review[rating]" value="1" />
@@ -89,23 +89,21 @@
             </form>
             <% } %>
             <% for(let review of campground.reviews){ %>
-                <div class="card mb-3 reveal reveal-up"> 
+                <div class="card mb-3 reveal reveal-up">
                     <div class="card-body">
-                             <h6 class="card-subtitle mb-2 text-muted">By: @<%= review.author.username %></h6>
-                            <p class="starability-result" data-rating="<%=review.rating %>">
-                                Rated: <%= review.rating %> stars
-                            </p>
-
+                        <h6 class="card-subtitle mb-2 text-muted">By: @<%= review.author.username %></h6>
+                        <p class="starability-result" data-rating="<%=review.rating %>">
+                            Rated: <%= review.rating %> stars
+                        </p>
                         <p class="card-text">Review: <%= review.body %></p>
-                         <% if(currentUser && review.author.equals(currentUser._id)){ %>
+                        <% if(currentUser && review.author.equals(currentUser._id)){ %>
                         <form action="/campgrounds/<%=campground._id%>/reviews/<%=review._id %>?_method=DELETE" method="post">
                             <button class="btn btn-sm btn-danger">Delete</button>
                         </form>
                         <% } %>
                     </div>
                 </div>
-                <% }%>
-                </div>
+            <% } %>
         </div>
     </div>
 

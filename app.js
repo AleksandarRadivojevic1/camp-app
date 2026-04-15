@@ -137,7 +137,7 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
-// passport.use(new passportLocal(User.authenticate()), passportGoogle(User.authenticate()))
+//passport.use(new passportLocal(User.authenticate()), passportGoogle(User.authenticate()))
 passport.use(new passportLocal(User.authenticate()));
 
 passport.serializeUser(User.serializeUser());

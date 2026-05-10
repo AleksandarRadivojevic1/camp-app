@@ -1,24 +1,137 @@
-/* Base hidden state */
+#map {
+  width: 100%;
+  height: 300px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+/* Carousel — fixed aspect ratio prevents CLS as images load */
+.carousel-img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Owner action buttons — 44px min touch target */
+.camp-info__actions .btn {
+  min-height: 44px;
+}
+
+/* Column entrance (fired via JS, DOMContentLoaded) */
 .reveal {
   opacity: 0;
-  transition: all 0.9s ease;
+  transition: opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1),
+              transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* Direction variations */
-.reveal-left {
-  transform: translateX(-80px);
-}
+.reveal-left  { transform: translateX(-24px); }
+.reveal-right { transform: translateX(24px); }
 
-.reveal-right {
-  transform: translateX(80px);
-}
-
-.reveal-up {
-  transform: translateY(60px);
-}
-
-/* When visible */
 .reveal.active {
   opacity: 1;
-  transform: translateX(0) translateY(0);
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Campground info section */
+.camp-info {
+  padding: 1.25rem 0 0.5rem;
+  border-top: 2px solid var(--warm-ink);
+  margin-top: 0.5rem;
+}
+
+.camp-info__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: var(--warm-ink);
+  margin: 0 0 0.75rem;
+  line-height: 1.1;
+}
+
+.camp-info__desc {
+  color: var(--warm-body);
+  line-height: 1.65;
+  margin: 0 0 1.1rem;
+  max-width: 58ch;
+  font-size: 0.975rem;
+}
+
+.camp-info__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.camp-info__meta span {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--warm-body);
+}
+
+.camp-info__meta .meta-label {
+  font-weight: 600;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--warm-muted);
+  display: block;
+  margin-bottom: 0.1rem;
+}
+
+.camp-info__actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Review section */
+.review-section-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--warm-ink);
+  margin-bottom: 0.75rem;
+}
+
+.review-list {
+  margin-top: 1.5rem;
+}
+
+.review {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--warm-border);
+}
+
+.review:first-child {
+  border-top: 2px solid var(--warm-ink);
+}
+
+.review__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 0.4rem;
+}
+
+.review__author {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--warm-ink);
+  letter-spacing: 0.01em;
+}
+
+.review__body {
+  font-size: 0.9rem;
+  color: var(--warm-body);
+  line-height: 1.6;
+  margin: 0 0 0.65rem;
 }

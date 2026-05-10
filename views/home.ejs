@@ -1,53 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampCheck</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheets/pages/home.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampCheck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/pages/home.css">
 </head>
+<body>
+  <div class="hero">
 
-<body class="d-flex min-vh-100 text-center text-white">
-    <div class="container d-flex flex-column justify-content-center align-items-center">
-        <header class="mb-auto w-100">
-            <div class="d-flex justify-content-between align-items-center">
-                <h3 class="mb-0">CampCheck</h3>
+    <div class="hero__left">
+      <header class="hero__nav">
+        <a href="/" class="hero__brand">CampCheck</a>
+        <nav class="hero__links">
+          <a href="/" class="hero__link hero__link--active">Home</a>
+          <a href="/campgrounds" class="hero__link">Campgrounds</a>
+          <% if (!currentUser) { %>
+            <a href="/login" class="hero__link">Login</a>
+            <a href="/register" class="hero__link hero__link--accent">Register</a>
+          <% } else { %>
+            <a href="/logout" class="hero__link">Logout</a>
+          <% } %>
+        </nav>
+      </header>
 
-                <nav class="nav nav-masthead">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    <a class="nav-link" href="/campgrounds">Campgrounds</a>
+      <main class="hero__content">
+        <p class="hero__eyebrow">Campground discovery</p>
+        <h1 class="hero__heading">Find your<br>next camp.</h1>
+        <p class="hero__sub">Discover campgrounds across the country, share the ones you love, and read what others found.</p>
+        <a href="/campgrounds" class="hero__btn">Explore Campgrounds</a>
+      </main>
 
-                    <% if(!currentUser) { %>
-                        <a class="nav-link" href="/login">Login</a>
-                        <a class="nav-link" href="/register">Register</a>
-                        <% } else { %>
-                            <a class="nav-link" href="/logout">Logout</a>
-                            <% } %>
-                </nav>
-            </div>
-        </header>
-        <main class="cover-container my-auto hero-paragraph">
-            <p class="lead">
-                Welcome to CampCheck! <br>
-                Jump right in and explore our many campgrounds. <br>
-                Feel free to share some of your own and comment on others!
-            </p>
-            <a href="/campgrounds" class="btn btn-lg btn-light fw-bold hero-button" >
-                View Campgrounds
-            </a>
-        </main>
-
-        <footer class="mt-auto text-white-50">
-            <p>&copy; 2026 CampCheck</p>
-        </footer>
-
+      <footer class="hero__footer">
+        <span>&copy; 2026 CampCheck</span>
+      </footer>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js">
-    </script>
-</body>
+    <div class="hero__right" aria-hidden="true">
+      <img
+        src="https://images.unsplash.com/photo-1559521783-1d1599583485?auto=format&fit=crop&w=900&q=80"
+        alt="Campfire glowing at a forested campsite at dusk"
+        class="hero__photo"
+      >
+    </div>
 
+  </div></body>
 </html>

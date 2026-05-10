@@ -1,4 +1,6 @@
 .footer {
-  background: var(--color-green-400);
-  color: var(--color-neutral-300);
+  background: var(--warm-ink);
+  color: var(--warm-nav-txt);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
 }

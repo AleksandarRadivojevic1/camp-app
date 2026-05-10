@@ -141,3 +141,8 @@ vite.config.ts.timestamp-*
 .vscode
 .vercel
 .vercelignore
+
+# Impeccable design tool
+.impeccable/
+.agents/
+skills-lock.json

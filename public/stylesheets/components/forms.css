@@ -1,15 +1,36 @@
-.form-control, .form-select {
-  border: 2px solid #e9ecef;
-  border-radius: var(--radius-md);
-  padding: 0.75rem 1rem;
-  transition: all 0.3s ease;
+.form-control,
+.form-select {
+  font-family: var(--font-body);
+  background: var(--warm-input);
+  border: 1.5px solid var(--warm-border);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.875rem;
+  color: var(--warm-ink);
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.form-control:focus, .form-select:focus {
-  border-color: var(--primary-green);
-  box-shadow: 0 0 0 4px rgba(45, 90, 61, 0.1);
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--warm-accent);
+  box-shadow: 0 0 0 3px oklch(43% 0.11 50 / 0.15);
+  background: oklch(97% 0.012 74);
+  outline: none;
 }
 
-#editImageUpload{
-    color: var(--primary-green);
+.form-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--warm-ink);
+  margin-bottom: 0.35rem;
 }
+
+.input-group-text {
+  background: oklch(88% 0.022 71);
+  border: 1.5px solid var(--warm-border);
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--warm-body);
+}
+
+#editImageUpload { color: var(--warm-accent); }

@@ -1,11 +1,10 @@
 <% layout('layouts/boilerplate') %>
-<div class="row">
-  <div class="col-6 offset-3 mt-4">
-    <div class="alert alert-danger" role="alert">
-  <h4 class="alert-heading"><%= err.message %></h4>
+
+<div class="error-page">
+  <p class="error-page__code">Error <%= err.statusCode || 500 %></p>
+  <h1 class="error-page__message"><%= err.message %></h1>
   <% if(process.env.NODE_ENV !== "production"){ %>
-  <p><%= err.stack %></p>
+  <pre class="error-page__stack"><%= err.stack %></pre>
   <% } %>
-</div>
-  </div>
+  <a class="btn-back" href="/campgrounds">&#8592; Back to Campgrounds</a>
 </div>

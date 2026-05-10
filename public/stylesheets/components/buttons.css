@@ -1,78 +1,69 @@
 .btn {
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-btn);
+  font-family: var(--font-body);
   font-weight: 600;
-  transition: var(--transition);
+  transition: background 180ms cubic-bezier(0.19, 1, 0.22, 1),
+              box-shadow  180ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.btn-primary {
-  background: var(--color-green-600);
-  color: white;
+/* Primary / Success — beaten copper */
+.btn-primary,
+.btn-success {
+  background: var(--warm-accent);
+  color: var(--warm-bg);
   border: none;
 }
 
-.btn-primary:hover {
-  background: var(--color-green-700);
-  color: white;
+.btn-primary:hover,
+.btn-success:hover {
+  background: var(--warm-hover);
+  color: var(--warm-bg);
   border: none;
 }
 
-/* had to override bootsrap's default focus styles for buttons to match the new design system */
-.btn-primary:active,
-.btn-primary:focus,
-.btn-primary:focus-visible {
+.btn-primary:focus-visible,
+.btn-success:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px var(--color-green-600)!important;
+  box-shadow: 0 0 0 3px oklch(43% 0.11 50 / 0.3) !important;
 }
 
-.btn-info{
-  background: var(--color-neutral-300);
-  color: white;
+/* Info — muted warm (secondary actions: Edit) */
+.btn-info {
+  background: var(--warm-muted);
+  color: var(--warm-bg);
   border: none;
 }
 
 .btn-info:hover {
-  background: var(--color-neutral-350);
-  color: white;
+  background: var(--warm-body);
+  color: var(--warm-bg);
   border: none;
 }
 
-.btn-info:active,
-.btn-info:focus,
 .btn-info:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px var(--color-neutral-350)!important;
+  box-shadow: 0 0 0 3px oklch(56% 0.04 65 / 0.3) !important;
 }
 
-.btn-success {
-  background: linear-gradient(135deg, var(--color-primary), #3d7a4d);
-  border: none;
-  box-shadow: var(--shadow-md);
-}
-
-.btn-success:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
+/* Danger — Bootstrap semantic red. Reserved for destructive actions only. */
 .btn-danger {
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-btn);
 }
 
-.btn-custom{
-  border-color: var(--color-neutral-500);
-  border-width: 2px;
-  border-radius: var(--radius-sm);
+/* Outline variant */
+.btn-custom {
+  border: 2px solid var(--warm-ink);
+  color: var(--warm-ink);
+  background: transparent;
+  border-radius: var(--radius-btn);
 }
 
 .btn-custom:hover {
-  background: var(--color-neutral-50);
+  background: var(--warm-card);
+  color: var(--warm-ink);
 }
 
-.btn-custom:active,
-.btn-custom:focus,
 .btn-custom:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px var(--color-neutral-500)!important;
+  box-shadow: 0 0 0 3px oklch(22% 0.035 50 / 0.2) !important;
 }
-
-

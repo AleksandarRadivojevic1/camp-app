@@ -1,4 +1,3 @@
-<!-- <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark"> -->
 <nav class="navbar navbar-modern sticky-top navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">CampCheck</a>
@@ -8,18 +7,31 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" href="/">Home</a>
-        <a class="nav-link" href="/campgrounds">Campgrounds</a>
-        <a class="nav-link" href="/campgrounds/new">New Campground</a>
+        <a class="nav-link <%= currentPath === '/' ? 'active' : '' %>"
+           <% if(currentPath === '/') { %>aria-current="page"<% } %>
+           href="/">Home</a>
+        <a class="nav-link <%= (currentPath.startsWith('/campgrounds') && currentPath !== '/campgrounds/new') ? 'active' : '' %>"
+           <% if(currentPath.startsWith('/campgrounds') && currentPath !== '/campgrounds/new') { %>aria-current="page"<% } %>
+           href="/campgrounds">Campgrounds</a>
+        <a class="nav-link <%= currentPath === '/campgrounds/new' ? 'active' : '' %>"
+           <% if(currentPath === '/campgrounds/new') { %>aria-current="page"<% } %>
+           href="/campgrounds/new">New Campground</a>
       </div>
       <div class="navbar-nav ms-auto">
         <% if(!currentUser) { %>
-          <a class="nav-link" href="/login">Login</a>
-          <a class="nav-link" href="/register">Register</a>
-          <% } else {%>
-             <span class="input-group-text logged-user-box"><%= currentUser.username.length > 10 ? currentUser.username.substring(0, 10) + '...' : currentUser.username %></span>
-            <a class="nav-link" href="/logout">Logout</a>
-            <% } %>
+          <a class="nav-link <%= currentPath === '/login' ? 'active' : '' %>"
+             <% if(currentPath === '/login') { %>aria-current="page"<% } %>
+             href="/login">Login</a>
+          <a class="nav-link <%= currentPath === '/register' ? 'active' : '' %>"
+             <% if(currentPath === '/register') { %>aria-current="page"<% } %>
+             href="/register">Register</a>
+        <% } else { %>
+          <span class="nav-user">
+            <span class="nav-user__avatar" aria-hidden="true"><%= currentUser.username[0].toUpperCase() %></span>
+            <span class="nav-user__name"><%= currentUser.username.length > 12 ? currentUser.username.substring(0, 12) + '…' : currentUser.username %></span>
+          </span>
+          <a class="nav-link nav-link--logout" href="/logout">Logout</a>
+        <% } %>
       </div>
     </div>
   </div>

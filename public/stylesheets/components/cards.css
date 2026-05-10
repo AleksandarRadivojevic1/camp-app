@@ -1,12 +1,10 @@
 .card {
   border: none;
-  background-color: var(--color-neutral-50);
+  background-color: var(--warm-card);
   border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-  overflow: hidden;
-}
-.card-style{
-    background-color: var(--color-neutral-50);
 }
 
+.card-style {
+  background-color: var(--warm-card);
+  color: var(--warm-body);
+}

@@ -116,8 +116,8 @@ app.use(
   helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: [],
-      connectSrc: ["'self'", ...connectSrcUrls],
-      scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
+      connectSrc: ["'self'", ...connectSrcUrls, ...(process.env.NODE_ENV !== "production" ? ["http://localhost:8400", "ws://localhost:8400"] : [])],
+      scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls, ...(process.env.NODE_ENV !== "production" ? ["http://localhost:8400"] : [])],
       styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
       workerSrc: ["'self'", "blob:"],
       objectSrc: [],
@@ -145,6 +145,7 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
+  res.locals.currentPath = req.path;
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   next();

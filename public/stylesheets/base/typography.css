@@ -1,7 +1,5 @@
 :root {
-  
-  /* Fonts */
-  --font-brand: "Montserrat", sans-serif;
-  --font-heading: "Aboreto", system-ui;
-  --font-body: "Open Sans", sans-serif;
+  --font-brand:   'Barlow Condensed', sans-serif;
+  --font-heading: 'Barlow Condensed', sans-serif;
+  --font-body:    'Barlow', sans-serif;
 }

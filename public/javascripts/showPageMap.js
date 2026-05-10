@@ -22,10 +22,9 @@ new mapboxgl.Marker()
 
 document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll(".reveal");
-
   sections.forEach((section, index) => {
     setTimeout(() => {
       section.classList.add("active");
-    }, index * 600); // 600ms delay between each
+    }, index * 120);
   });
 });
